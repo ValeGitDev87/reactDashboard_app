@@ -1,0 +1,205 @@
+// 1. crea una funzione che ritorna la divisione tra due numeri
+
+const div_tra_2_number = (num1, num2)=>{
+
+    if(num1 === 0 && num2 === 0){
+        return 'impossibile dividere per 0'
+    }
+
+    return num1/num2
+}
+
+
+/*  console.log(div_tra_2_number(4,2)); */
+
+ // 2. creaunafunzione (preferibilmente ricorsiva)che ritorna il fattoriale di un numero
+
+//! dichiaro la variabile fattoriale e faccio un ciclo per fargli mltiplicare N per i cosi orttengo es: N= 5 
+ function calcolaFattoriale(n) {
+    
+    let fattoriale = 1;
+    
+    for (let i = 1; i <= n; i++) {
+      fattoriale *= i;
+    }
+    
+    return fattoriale;
+  }
+  
+
+/* console.log( calcolaFattoriale(4));  */
+
+
+
+
+
+// ciclo per l'elemento poi verifico se l'elemtno in posizione ciclato è uguale a quello passato e stampo e ritorno true cosi da uscire dal cliclo senno avremmo visto il log più volte
+function cercaElemento(array, elemento) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === elemento) {
+        console.log('elemento torvato');
+        return true;
+      }
+      else{
+        console.log('elemneto non trovato');
+        return false;
+      }
+    }
+   
+  }
+  
+  // Esempio di utilizzo
+  const array = [1, 2, 3, 4, 5];
+  const elementoDaCercare = 3;
+  
+ 
+  
+
+/* cercaElemento(array,'casa') */
+
+
+function ordinaArray(array) {
+    const lunghezza = array.length;
+    
+        // ottengo e ciclo per tutte le posizini del array
+    for (let i = 0; i < lunghezza - 1; i++) {
+      let indiceMinimo = i;
+     
+      
+     
+      for (let j = i + 1; j < lunghezza; j++) {
+        if (array[j] < array[indiceMinimo]) {
+            
+          indiceMinimo = j;
+        }
+      }
+  
+      if (indiceMinimo !== i) {
+        const temp = array[i];
+        array[i] = array[indiceMinimo];
+        array[indiceMinimo] = temp;
+      }
+    }
+  
+    return array;
+  }
+  
+  // Esempio di utilizzo
+  const array2 = [3,8,5,1,9,2];
+  const arrayOrdinato = ordinaArray(array2);
+  console.log(arrayOrdinato); 
+  
+
+
+  function divisione(dividendo, divisore) {
+    if (divisore === 0) {
+      console.log("Errore: divisione per zero non consentita.");
+      return; 
+    }
+  
+    const risultato = dividendo / divisore;
+    console.log(risultato);
+  }
+  
+  // Esempio di utilizzo
+  divisione(10, 2)
+
+
+  let matrice = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9] 
+]
+
+
+
+function calcoloDiagSx(matrice){
+
+   let somma = 0
+    for (let i = 0; i < matrice.length; i++) {
+       somma += matrice[i][i]
+    }
+    console.log(somma);
+    return somma
+
+
+}
+
+calcoloDiagSx(matrice);
+
+
+///crea una funzione che inverte righe e colonne di una matrice
+
+function inverti_matrice(matrice) {
+    const righe = matrice.length;
+    const colonne = matrice[0].length;
+  
+     
+    const matriceInvertita = [];
+    for (let i = 0; i < colonne; i++) {
+      matriceInvertita[i] = [];
+    }
+  
+    for (let i = 0; i < righe; i++) {
+      for (let c = 0; c < colonne; c++) {
+        matriceInvertita[c][i] = matrice[i][c];
+      }
+    }
+  
+    return matriceInvertita;
+  }
+
+ 
+  const matriceInvertita = inverti_matrice(matrice);
+
+  console.log("Matrice invertita:", matriceInvertita);
+
+
+
+  // esempio di stuck che usa il metodo FIFO  il primo ad entrare è il primo ad uscire 
+ 
+  class Stack {
+    // dichiro il costruttore che verra attivato all'istanza creando un array vuoto
+    constructor() {
+      this.items = [];
+    }
+    
+    // metodo push  aggiunge n elemnti in prima posizione
+    push(element) {
+      this.items.push(element);
+    }
+    // RImuove elemnto in prima posizione verificando prima se lo stack è vuoto
+    pop() {
+      if (this.isEmpty()) {
+        return "Stco vuoto ";
+      }
+      return this.items.pop();
+    }
+    // restituisce il primo elemnto dello stack senza eliminarlo
+    peek() {
+      if (this.isEmpty()) {
+        return "Stack vuoto";
+      }
+      return this.items[this.items.length - 1];
+    }
+  // verifica se è vuoto
+    isEmpty() {
+      return this.items.length === 0;
+    }
+   // la lungezza dello stuck
+    size() {
+      return this.items.length;
+    }
+  }
+  
+  // Esempio di utilizzo
+  const stack = new Stack();
+  stack.push(10);
+  stack.push(20);
+  stack.push(30);
+  
+  console.log(stack.peek()); // Output: 30
+  console.log(stack.pop()); // Output: 30
+  console.log(stack.size()); // Output: 2
+  console.log(stack.isEmpty()); // Output: false
+  
